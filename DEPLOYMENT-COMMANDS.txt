@@ -1,0 +1,142 @@
+SHORELINE PRO SERVICES WEBSITE - DEPLOYMENT COMMANDS
+====================================================
+
+STEP 1: Create GitHub Repository
+================================
+Go to: https://github.com/new
+
+Settings:
+- Repository name: shorelinepro-website
+- Description: Shoreline Pro Services static website
+- Visibility: Public
+- Click: Create repository
+
+You'll then see a screen with your repository URL like:
+https://github.com/YOUR-USERNAME/shorelinepro-website.git
+
+Copy this URL - you'll need it in Step 2.
+
+
+STEP 2: Push Code to GitHub
+============================
+Open PowerShell in your shorelinepro folder and run these commands:
+
+git remote add origin https://github.com/YOUR-USERNAME/shorelinepro-website.git
+
+(Replace YOUR-USERNAME with your actual GitHub username)
+
+Then run:
+git branch -M main
+git push -u origin main
+
+You'll be prompted to log in with your GitHub credentials.
+
+
+STEP 3: Deploy on Netlify
+=========================
+Go to: https://netlify.com/signup
+
+Sign up with GitHub (click "Sign up with GitHub")
+
+Then:
+1. Click "Add new site"
+2. Click "Import an existing project"
+3. Select "GitHub"
+4. Find and select: shorelinepro-website
+5. Click "Next"
+6. Build settings should show:
+   - Branch: main
+   - Build command: (leave empty)
+   - Publish directory: public
+7. Click "Deploy site"
+
+Wait for the green checkmark (deployment complete).
+
+Copy your Netlify URL - it will look like: 
+shorelinepro-website.netlify.app
+
+
+STEP 4: Update Cloudflare DNS
+==============================
+Go to: https://dash.cloudflare.com
+
+Select your domain: shorelineproservices.com
+
+Go to: DNS (in sidebar)
+
+Find the A record (shows your current host)
+
+Edit it:
+- Type: Change from A to CNAME
+- Name: @ (or shorelineproservices.com)
+- Content: Paste your Netlify URL from Step 3
+- Proxy status: Proxied (orange cloud)
+- Click: Save
+
+
+STEP 5: Wait for DNS Propagation
+=================================
+DNS changes take 5-10 minutes to propagate globally.
+
+During this time, refresh your browser every minute or two.
+
+
+STEP 6: Verify Website is Live
+================================
+Open: https://shorelineproservices.com
+
+Check:
+✓ Page loads (no 404 error)
+✓ Green HTTPS lock icon visible
+✓ Testimonials display
+✓ Form is accessible
+✓ Mobile responsive (test on phone)
+
+If you see an error, wait another 5 minutes and refresh again.
+
+
+TESTING FORM SUBMISSIONS
+=========================
+1. Fill out the estimate form
+2. Use your own phone number (to test)
+3. Click "Request My Free Estimate"
+4. Check your email at: shorelineproservices@gmail.com
+5. You should receive the form submission
+
+If form doesn't work:
+- Wait 10 minutes for Cloudflare DNS to fully propagate
+- Hard refresh browser: Ctrl+Shift+Delete (clear cache) then Ctrl+R
+- Verify in Cloudflare that DNS CNAME is correct
+
+
+MAKING UPDATES AFTER DEPLOYMENT
+=================================
+To update your website anytime:
+
+1. Edit public/index.html (or any file)
+2. Save the file
+3. Open PowerShell in your shorelinepro folder
+4. Run:
+   git add .
+   git commit -m "Update testimonials" (or describe your change)
+   git push
+5. Netlify auto-deploys within 1-2 minutes
+6. Refresh website to see live changes
+
+
+COST
+====
+Total: $0/month (all free tiers)
+
+- Netlify static hosting: Free
+- Cloudflare DNS: Free
+- Formspree lead capture: Free (basic plan)
+
+
+NEED HELP?
+==========
+1. Check Netlify docs: https://netlify.com/docs
+2. Check Cloudflare DNS docs: https://cloudflare.com/learning/dns/
+3. Check Formspree: https://formspree.io/help
+
+Good luck! Your website will be live within 30 minutes.
