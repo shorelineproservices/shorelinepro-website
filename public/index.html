@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoreline Pro Services LLC - Vancouver, WA Painting Contractor</title>
+    <meta name="description" content="Licensed residential painting contractor serving Vancouver, WA and Clark County. Professional interior and exterior painting, cabinet refinishing, and deck staining.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1F2D50;
+            --amber: #B8863B;
+            --cream: #F5F1E8;
+            --text: #333;
+            --light: #f9f7f3;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+
+        .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Ribbon */
+        .ribbon {
+            background: var(--navy);
+            color: #fff;
+            padding: 12px 0;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .ribbon .wrap {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .ribbon span {
+            display: inline-block;
+        }
+
+        .ribbon strong {
+            font-weight: 600;
+            color: var(--amber);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3d5e 100%);
+            color: #fff;
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero .wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .brandmark {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            justify-content: center;
+        }
+
+        .brandmark .dot {
+            width: 8px;
+            height: 8px;
+            background: var(--amber);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .eyebrow {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--amber);
+            font-weight: 600;
+        }
+
+        .headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            line-height: 1.2;
+            margin: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .sub {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--amber);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: #d4a856;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(184,134,59,0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            border: 2px solid #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .phone-note {
+            font-size: 14px;
+            color: rgba(255,255,255,0.85);
+            margin-top: 16px;
+        }
+
+        .phone-note a {
+            color: var(--amber);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .phone-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Brushstroke SVG */
+        .brushstroke {
+            display: block;
+            width: 100%;
+            height: 40px;
+            margin: -1px 0 0 0;
+        }
+
+        /* Pillars / Trust Section */
+        .pillars {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .pillar {
+            text-align: center;
+        }
+
+        .pillar-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            color: var(--amber);
+        }
+
+        .pillar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .pillar p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Services */
+        .services {
+            background: var(--light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 12px;
+            color: var(--navy);
+        }
+
+        .services .sub {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .service-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .chip {
+            background: var(--navy);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Gallery / Testimonials Section */
+        .gallery-testimonials {
+            background: #fff;
+            padding: 80px 0;
+        }
+
+        .gallery-testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--navy);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            background: var(--light);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item-text {
+            padding: 20px;
+        }
+
+        .gallery-item-text h3 {
+            color: var(--navy);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .gallery-item-text p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            text-align: center;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            padding: 32px;
+            border-radius: 4px;
+            max-width: 600px;
+            margin: 0 auto;
+            border-left: 4px solid var(--amber);
+        }
+
+        .stars {
+            font-size: 18px;
+            color: var(--amber);
+            margin-bottom: 16px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-card p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--navy);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-attribution {
+            font-size: 14px;
+            color: #999;
+            font-weight: 600;
+        }
+
+        /* Offer / Estimate Section */
+        .offer {
+            background: var(--navy);
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .offer-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .offer-card {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .offer-copy h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .offer-copy p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 28px;
+            color: rgba(255,255,255,0.95);
+        }
+
+        .offer-copy ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .offer-copy li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 15px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .offer-copy svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            color: var(--amber);
+            margin-top: 2px;
+        }
+
+        .offer-form {
+            background: rgba(255,255,255,0.05);
+            padding: 32px;
+            border-radius: 4px;
+            backdrop-filter: blur(10px);
+        }
+
+        .offer-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .form-sub {
+            font-size: 14px;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 28px;
+        }
+
+        .form-sub a {
+            color: var(--amber);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        .field label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.95);
+            color: var(--text);
+            border-radius: 4px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: var(--amber);
+            box-shadow: 0 0 0 3px rgba(184,134,59,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,0.75);
+            padding: 32px 0;
+            text-align: center;
+            font-size: 13px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer strong {
+            color: #fff;
+        }
+
+        footer a {
+            color: var(--amber);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .headline {
+                font-size: 36px;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .services h2,
+            .gallery-testimonials h2 {
+                font-size: 32px;
+            }
+
+            .offer-copy h2 {
+                font-size: 28px;
+            }
+
+            .cta-row {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .ribbon .wrap {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Ribbon -->
+    <div class="ribbon">
+        <div class="wrap">
+            <span><strong>Licensed</strong> WA #SHORES751PG</span>
+            <span><strong>Bonded &amp; Insured</strong></span>
+            <span>Serving <strong>Vancouver, WA &amp; Clark County</strong></span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="wrap">
+            <div class="brandmark">
+                <span class="dot"></span>
+                <span>Shoreline Pro Services</span>
+            </div>
+            <div class="eyebrow">Free Estimate — No Obligation</div>
+            <h1 class="headline">A painter you can actually get on the phone.</h1>
+            <p class="sub">Licensed, bonded &amp; insured interior and exterior painting for Vancouver, WA and Clark County homes. Call now and talk to a real person about your project.</p>
+            <div class="cta-row">
+                <a class="btn btn-primary" href="tel:+13603382000">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Call (360) 338-2000
+                </a>
+                <a class="btn btn-secondary" href="#estimate">Get a Free Estimate ↓</a>
+            </div>
+            <p class="phone-note">Or scroll down — <a href="#estimate">tell us about your project</a> and we'll call you back same day.</p>
+        </div>
+    </header>
+
+    <!-- Brushstroke Divider -->
+    <svg class="brushstroke" viewBox="0 0 1080 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,14 C120,4 220,22 340,12 C460,2 560,20 680,10 C800,1 900,19 1080,8 L1080,26 L0,26 Z" fill="#C08A2E" opacity="0.9"></path>
+        <path d="M0,18 C140,10 260,24 400,16 C540,8 660,22 800,14 C900,8 1000,20 1080,14 L1080,26 L0,26 Z" fill="#1B2A47" opacity="0.55"></path>
+    </svg>
+
+    <!-- Pillars / Trust -->
+    <section class="pillars">
+        <div class="wrap pillar-grid">
+            <div class="pillar">
+                <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"></path>
+                    <path d="m9 12 2 2 4-4"></path>
+                </svg>
+                <h3>Licensed &amp; Insured</h3>
+                <p>WA contractor license SHORES751PG. Fully bonded and insured on every job.</p>
+            </div>
+
+            <div class="pillar">
+                <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 3"></path>
+                </svg>
+                <h3>Premium Coatings</h3>
+                <p>Sherwin-Williams Emerald Urethane Trim Enamel on trim and doors, Duration on walls and ceilings.</p>
+            </div>
+
+            <div class="pillar">
+                <svg class="pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <h3>Local &amp; Responsive</h3>
+                <p>Based in Vancouver, WA. We answer, we show up, we quote fast.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="wrap">
+            <h2>What we do</h2>
+            <p class="sub">Residential painting, done right the first time.</p>
+            <div class="service-chips">
+                <span class="chip">Exterior Painting</span>
+                <span class="chip">Interior Painting</span>
+                <span class="chip">Cabinet Refinishing</span>
+                <span class="chip">Deck &amp; Fence Staining</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brushstroke Divider -->
+    <svg class="brushstroke" viewBox="0 0 1080 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,10 C130,20 240,4 360,14 C480,24 590,6 710,16 C830,24 930,6 1080,16 L1080,26 L0,26 Z" fill="#1B2A47" opacity="0.5"></path>
+        <path d="M0,16 C150,6 270,22 410,12 C550,4 660,20 800,10 C910,4 1000,18 1080,12 L1080,26 L0,26 Z" fill="#C08A2E" opacity="0.9"></path>
+    </svg>
+
+    <!-- Gallery & Testimonials -->
+    <section class="gallery-testimonials">
+        <div class="wrap">
+            <h2>See what our customers say</h2>
+            
+            <div class="testimonials-section">
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"House painting. They did an awesome job and a fair price. They pressured first, replaced all rotted wood, sanded, and painted. Took 4 days and at the end of each day they cleaned up all the mess. Very professional."</p>
+                            <div class="testimonial-attribution">Bruce B. • Yelp Review</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"I had the opportunity to see some of Tristen's work during a networking meeting. As I have got the opportunity to know more about his business and the pride his company takes in their work, I highly recommend working with Tristen. A talented painter with lots of integrity. Thanks!"</p>
+                            <div class="testimonial-attribution">Kyle Oman • Facebook Recommendation</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Shoreline Pro helped us during the fall/winter of 2024. We were getting our house ready to sell. There was a lot of work to be done: exterior paint, interior paint, pressure washing, and landscaping. Shoreline provided a very reasonable quote and timeline. They took our old rundown house and made it look new again. If I had to do this all over again I would absolutely use them again. So very polite, respectful, friendly and professional."</p>
+                            <div class="testimonial-attribution">Kelly Sams • Facebook Recommendation</div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"I was very impressed with their professionalism, punctuality, and coordination. They responded within 24 hours and the owner gave an estimate the next day. Full two-story 2500 sq ft repaint — masked everything, no drips on concrete, no trash left behind. They caulked failed areas, painted doors and window frames, and stained the fence beautifully. Top-notch Sherwin-Williams products. The quote was reasonable, itemized, with care instructions provided. Five stars."</p>
+                            <div class="testimonial-attribution">Alexis Miller • Facebook Recommendation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brushstroke Divider -->
+    <svg class="brushstroke" viewBox="0 0 1080 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,14 C120,4 220,22 340,12 C460,2 560,20 680,10 C800,1 900,19 1080,8 L1080,26 L0,26 Z" fill="#C08A2E" opacity="0.9"></path>
+        <path d="M0,18 C140,10 260,24 400,16 C540,8 660,22 800,14 C900,8 1000,20 1080,14 L1080,26 L0,26 Z" fill="#1B2A47" opacity="0.55"></path>
+    </svg>
+
+    <!-- Estimate Section -->
+    <section class="offer" id="estimate">
+        <div class="wrap">
+            <div class="offer-card">
+                <div class="offer-copy">
+                    <div class="eyebrow">Your Free Estimate Includes</div>
+                    <h2>No pressure. No upsell script. Just a real quote.</h2>
+                    <p>Tell us a little about the project and we'll follow up same day — usually within the hour during business hours.</p>
+                    <ul>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6 9 17l-5-5"></path>
+                            </svg>
+                            On-site or video walkthrough, your choice
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6 9 17l-5-5"></path>
+                            </svg>
+                            Written quote with material and labor broken out
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 6 9 17l-5-5"></path>
+                            </svg>
+                            No obligation to book
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="offer-form">
+                    <h3>Request your estimate</h3>
+                    <p class="form-sub">Or just call — <a href="tel:+13603382000">(360) 338-2000</a></p>
+                    <form action="https://formspree.io/f/xoeakala" method="POST">
+                        <div class="field">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="field">
+                            <label for="service">Project type</label>
+                            <select id="service" name="service">
+                                <option>Exterior painting</option>
+                                <option>Interior painting</option>
+                                <option>Cabinet refinishing</option>
+                                <option>Deck / fence staining</option>
+                                <option>Not sure yet</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="message">A few details (optional)</label>
+                            <textarea id="message" name="message" rows="3"></textarea>
+                        </div>
+                        <input type="text" name="_gotcha" style="display: none;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Request My Free Estimate</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="wrap">
+            <div><strong>Shoreline Pro Services LLC</strong> · WA License SHORES751PG</div>
+            <div><a href="tel:+13603382000">(360) 338-2000</a> · Vancouver, WA · Clark County</div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll-to-section
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

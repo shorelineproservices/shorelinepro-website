@@ -1,0 +1,154 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id        String     @id @default(cuid())
+  name      String
+  email     String?
+  phone     String
+  address   String
+  city      String     @default("Vancouver")
+  state     String     @default("WA")
+  zipCode   String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  jobs      Job[]
+  notes     String?
+
+  @@unique([phone])
+}
+
+model Job {
+  id            String     @id @default(cuid())
+  title         String
+  description   String?
+  customerId    String
+  customer      Customer   @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  status        JobStatus  @default(QUOTE)
+  jobType       String     // e.g., "Interior", "Exterior", "Cabinet", "Custom"
+  address       String
+  city          String     @default("Vancouver")
+  state         String     @default("WA")
+  zipCode       String
+  squareFeet    Int?
+  estimatedHours Int?
+  laborCost     Float?
+  materialCost  Float?
+  totalCost     Float?
+  depositAmount Float?
+  depositPaid   Boolean    @default(false)
+  startDate     DateTime?
+  endDate       DateTime?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  invoices      Invoice[]
+  schedules     Schedule[]
+  photos        Photo[]
+  notes         String?
+
+  @@index([customerId])
+  @@index([status])
+}
+
+enum JobStatus {
+  QUOTE
+  QUOTED
+  ACCEPTED
+  IN_PROGRESS
+  COMPLETED
+  INVOICED
+  PAID
+  CANCELLED
+}
+
+model Schedule {
+  id        String     @id @default(cuid())
+  jobId     String
+  job       Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  date      DateTime
+  startTime String     // HH:MM format
+  endTime   String     // HH:MM format
+  crew      String?    // Crew member names
+  notes     String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@index([jobId])
+  @@index([date])
+}
+
+model Invoice {
+  id            String     @id @default(cuid())
+  jobId         String
+  job           Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  invoiceNumber String     @unique
+  issueDate     DateTime   @default(now())
+  dueDate       DateTime
+  lineItems     String     // JSON array of {description, quantity, unitPrice, total}
+  subtotal      Float
+  tax           Float      @default(0)
+  total         Float
+  amountPaid    Float      @default(0)
+  status        InvoiceStatus @default(ISSUED)
+  notes         String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@index([jobId])
+  @@index([status])
+}
+
+enum InvoiceStatus {
+  DRAFT
+  ISSUED
+  SENT
+  OVERDUE
+  PAID
+  CANCELLED
+}
+
+model Photo {
+  id        String     @id @default(cuid())
+  jobId     String
+  job       Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  url       String     // URL to image storage
+  caption   String?
+  stage     String?    // "before", "during", "after"
+  createdAt DateTime   @default(now())
+
+  @@index([jobId])
+}
+
+model TeamMember {
+  id        String     @id @default(cuid())
+  name      String
+  email     String?
+  phone     String?
+  role      String     // "Owner", "Foreman", "Painter", "Apprentice"
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Expense {
+  id          String     @id @default(cuid())
+  category    String     // "Materials", "Equipment", "Labor", "Transport", "Other"
+  description String
+  amount      Float
+  date        DateTime   @default(now())
+  receipt     String?    // URL to receipt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([category])
+  @@index([date])
+}
