@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shoreline Pro Services LLC - Vancouver, WA Painting Contractor</title>
     <meta name="description" content="Licensed residential painting contractor serving Vancouver, WA and Clark County. Professional interior and exterior painting, cabinet refinishing, and deck staining.">
+    <link rel="canonical" href="https://shorelineproservices.com/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:title" content="Shoreline Pro Services - Vancouver, WA Painting Contractor">
+    <meta property="og:description" content="Licensed, bonded & insured interior and exterior painting for Vancouver, WA and Clark County homes. Free estimates.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shorelineproservices.com/">
+    <meta property="og:image" content="https://shorelineproservices.com/photos/log-cabin.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Shoreline Pro Services LLC",
+      "telephone": "+1-360-338-2000",
+      "email": "shorelineproservices@gmail.com",
+      "areaServed": ["Vancouver, WA", "Clark County, WA"],
+      "url": "https://shorelineproservices.com/",
+      "priceRange": "$$",
+      "description": "Licensed, bonded and insured residential painting contractor offering interior and exterior painting, cabinet refinishing, and deck & fence staining."
+    }
+    </script>
+    <!--
+        GOOGLE ADS / GA4 TRACKING
+        Add your gtag.js base snippet here once the Google Ads account and/or GA4
+        property exist. Fire the conversion event on /thank-you.html instead of here,
+        since that page only loads after a successful form submission (see the _next
+        field on the estimate form below).
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-XXXXXXXXX');
+        </script>
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -419,6 +454,7 @@
             background: rgba(255,255,255,0.05);
             padding: 32px;
             border-radius: 4px;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
         }
 
@@ -530,10 +566,50 @@
                 flex-direction: column;
                 gap: 8px;
             }
+
+            body {
+                padding-bottom: 64px;
+            }
+
+            .mobile-call-bar {
+                display: flex;
+            }
+        }
+
+        /* Sticky mobile call bar */
+        .mobile-call-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--amber);
+            color: var(--navy);
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 0;
+            padding-bottom: calc(14px + env(safe-area-inset-bottom));
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+        }
+
+        .mobile-call-bar svg {
+            width: 20px;
+            height: 20px;
         }
     </style>
 </head>
 <body>
+    <a href="tel:+13603382000" class="mobile-call-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        Call Now — (360) 338-2000
+    </a>
     <!-- Ribbon -->
     <div class="ribbon">
         <div class="wrap">
@@ -631,28 +707,21 @@
 
             <div class="gallery-grid" style="margin-top: 10px;">
                 <div class="gallery-item">
-                    <img src="/photos/exterior-home.svg" alt="Exterior house painting project">
-                    <div class="gallery-item-text">
-                        <h3>Exterior repaint</h3>
-                        <p>Full siding refresh with premium coatings and careful prep work for strong curb appeal.</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="/photos/log-cabin.jpg" alt="Log cabin exterior restoration">
+                    <img src="/photos/log-cabin.jpg" alt="Log cabin exterior restoration" width="1000" height="750" loading="lazy">
                     <div class="gallery-item-text">
                         <h3>Log cabin exterior</h3>
                         <p>Warm wood-tone finish that enhances natural grain while protecting the home from the elements.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/photos/deck-stain.jpg" alt="Deck and fence staining project">
+                    <img src="/photos/deck-stain.jpg" alt="Deck and fence staining project" width="1000" height="750" loading="lazy">
                     <div class="gallery-item-text">
                         <h3>Deck &amp; fence staining</h3>
                         <p>Protective stain and prep that keeps outdoor features looking rich and durable.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/photos/interior-refresh.jpg" alt="Interior painting project">
+                    <img src="/photos/interior-refresh.jpg" alt="Interior painting project" width="1000" height="568" loading="lazy">
                     <div class="gallery-item-text">
                         <h3>Interior refresh</h3>
                         <p>Clean, detail-focused interior work that brightens the home and improves resale value.</p>
@@ -734,6 +803,7 @@
                     <h3>Request your estimate</h3>
                     <p class="form-sub">Or just call — <a href="tel:+13603382000">(360) 338-2000</a></p>
                     <form action="https://formspree.io/f/xoeakala" method="POST">
+                        <input type="hidden" name="_next" value="/thank-you.html">
                         <div class="field">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -769,6 +839,7 @@
         <div class="wrap">
             <div><strong>Shoreline Pro Services LLC</strong> · WA License SHORES751PG</div>
             <div><a href="tel:+13603382000">(360) 338-2000</a> · Vancouver, WA · Clark County</div>
+            <div style="margin-top: 8px;"><a href="/privacy-policy.html">Privacy Policy</a></div>
         </div>
     </footer>
 

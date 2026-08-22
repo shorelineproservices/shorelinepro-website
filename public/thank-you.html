@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Received - Shoreline Pro Services</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!--
+        GOOGLE ADS CONVERSION TRACKING
+        This page only loads after a visitor successfully submits the estimate form
+        (see the _next field on the form in index.html), making it the reliable spot
+        to fire a page-load conversion. Paste your gtag.js snippet + conversion event
+        below once the Google Ads conversion action and GA4 property are created.
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-XXXXXXXXX');
+          gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXX'});
+        </script>
+    -->
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --navy: #1F2D50;
+            --amber: #B8863B;
+            --cream: #F5F1E8;
+            --text: #333;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--cream);
+        }
+        .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #2a3d5e 100%);
+            color: #fff;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        .hero .wrap { display: flex; flex-direction: column; gap: 20px; align-items: center; }
+        .brandmark { display: flex; align-items: center; gap: 8px; font-size: 18px; font-weight: 700; }
+        .brandmark .dot { width: 8px; height: 8px; background: var(--amber); border-radius: 50%; display: inline-block; }
+        .check {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: var(--amber); color: var(--navy);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .check svg { width: 32px; height: 32px; }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            line-height: 1.2;
+        }
+        .sub { font-size: 18px; color: rgba(255,255,255,0.9); max-width: 520px; }
+        .btn-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 12px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 28px; font-size: 16px; font-weight: 600;
+            border-radius: 4px; text-decoration: none; font-family: 'DM Sans', sans-serif;
+        }
+        .btn-primary { background: var(--amber); color: var(--navy); }
+        .btn-secondary { background: rgba(255,255,255,0.2); color: #fff; border: 2px solid #fff; }
+        footer { text-align: center; padding: 32px 0; font-size: 13px; color: #667; }
+        footer a { color: var(--navy); }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="wrap">
+            <div class="brandmark">
+                <span class="dot"></span>
+                <span>Shoreline Pro Services</span>
+            </div>
+            <div class="check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+            </div>
+            <h1>Got it — we'll be in touch shortly.</h1>
+            <p class="sub">Your estimate request came through. We typically call back within the hour during business hours — sooner if it's urgent, just call us directly.</p>
+            <div class="btn-row">
+                <a class="btn btn-primary" href="tel:+13603382000">Call (360) 338-2000</a>
+                <a class="btn btn-secondary" href="/">Back to homepage</a>
+            </div>
+        </div>
+    </header>
+    <footer>
+        <div class="wrap">Shoreline Pro Services LLC · WA License SHORES751PG · <a href="/privacy-policy.html">Privacy Policy</a></div>
+    </footer>
+</body>
+</html>
