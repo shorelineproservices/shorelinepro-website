@@ -2,5 +2,8 @@
   publish = "public"
   command = ""
 
+[build.environment]
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
 [dev]
   publish = "public"
