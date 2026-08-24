@@ -1,5 +1,7 @@
 # Shoreline Pro Services LLC - Copilot Instructions
 
+> **This repo contains two unrelated projects.** Everything below describes the internal CRM app (`app/`, `prisma/`) — it does not touch `public/`, which is the actual live marketing website at shorelineproservices.com (plain static HTML, no build step, deployed to Netlify). Do not deploy `app/` anywhere (Railway, Vercel, etc.) — its API routes have no authentication and would expose real customer data. See `README.md` for the full picture of both projects before making deployment decisions.
+
 This workspace is for Shoreline Pro Services LLC, a residential painting contractor located in Clark County, Washington. This is a Next.js full-stack business management application for handling job scheduling, customer database, invoicing, and team management.
 
 ## Project Structure

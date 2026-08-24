@@ -1,232 +1,71 @@
-# Shoreline Pro Services LLC - Business Management System
+# Shoreline Pro Services
 
-A comprehensive Next.js web application for managing residential painting contractor operations in Clark County, Washington.
+This repository contains **two independent, unrelated projects**. Mixing them up in the past caused real incidents (an unfinished CRM template went live on the production domain via Railway; a Vercel deploy tried to build the CRM instead of the website). Read this before deploying anything from this repo.
 
-**Business Info:**
-- Business: Shoreline Pro Services LLC
-- Service Area: Clark County, Washington
-- Type: Residential painting contractor
+| | Marketing website | Internal CRM |
+|---|---|---|
+| Where | `public/` | `app/`, `prisma/`, `lib/`, `components/` |
+| Status | **Live** at [shorelineproservices.com](https://shorelineproservices.com) | Not deployed, in-progress |
+| Stack | Plain static HTML/CSS/JS, no build step | Next.js + Prisma/SQLite |
+| Hosted on | Netlify (`shorelinepro-website` site) | Nowhere — do not deploy without adding auth first |
 
-## Features
+---
 
-### 🏠 Customer Management
-- Store customer contact information
-- Track address history (defaults to Clark County, WA)
-- Manage customer notes and preferences
-- View job history for each customer
+## Marketing website (`public/`)
 
-### 📋 Job Management
-- Create and track painting jobs (interior, exterior, cabinet, custom)
-- Generate job estimates with labor and material costs
-- Track job status from quote through payment
-- Schedule job dates and assign crew
-- Attach before/after photos to jobs
+The actual customer-facing site. No framework, no build step — just static files deployed as-is.
 
-### 💰 Invoicing
-- Auto-generate invoice numbers
-- Create line-item invoices with tax calculation
-- Track payment status
-- View invoice history and payment records
-- Download/print invoices
+**Live sites:**
+- Main site: https://shorelineproservices.com
+- Dedicated PPC landing page: https://shorelinepro-landing.netlify.app (separate repo: [`shoreline-landing-pages`](https://github.com/shorelineproservices/shoreline-landing-pages))
 
-### 👥 Team Management
-- Add and manage crew members
-- Assign roles (Owner, Foreman, Painter, Apprentice)
-- Schedule crew availability
+**Pages:** `index.html` (home), `portfolio.html`, `thank-you.html` (form success), `privacy-policy.html`, `404.html`.
 
-### 📊 Scheduling & Tracking
-- Calendar-based job scheduling
-- Crew assignment and tracking
-- Job completion tracking
-- Photo documentation support
+**Form backend:** Netlify Forms (not Formspree — migrated away since Formspree gates file attachments behind a paid plan). Submissions include optional photo/video uploads, go through a honeypot spam field, and email-notify `shorelineproservices@gmail.com` via a Netlify outgoing webhook. Redirects to `/thank-you.html` on success.
 
-### 💸 Expense Tracking
-- Log material, equipment, and labor expenses
-- Attach receipts
-- Categorize by expense type
-- Monthly expense reports
-
-## Tech Stack
-
-- **Framework:** Next.js 16+ (React 19)
-- **Language:** TypeScript
-- **Database:** SQLite with Prisma ORM
-- **Styling:** Tailwind CSS
-- **Package Manager:** npm
-
-## Quick Start
-
-### Prerequisites
-- Node.js 18+
-- npm 9+
-
-### Installation
-
+**To update the live site:**
 ```bash
-# Install dependencies
+# 1. Edit files under public/
+# 2. Commit and push (source of truth / history)
+git add public/ && git commit -m "..." && git push
+
+# 3. Actually deploy (pushing to GitHub does NOT auto-deploy —
+#    there's no CI/CD wired up; see note below)
+netlify deploy --prod --dir=public
+```
+
+**No CI/CD yet.** A `git push` alone does not update the live site — someone has to run `netlify deploy --prod --dir=public` afterward. Setting up GitHub Actions auto-deploy is possible (a Netlify Personal Access Token as a repo secret) but hasn't been done.
+
+**DNS / domain:** `shorelineproservices.com` is on Cloudflare DNS (not Cloudflare-proxied — DNS-only, so Netlify's Let's Encrypt cert can be issued directly). Root record is a CNAME to `shorelinepro-website.netlify.app`.
+
+**`netlify.toml` note:** `NETLIFY_NEXT_PLUGIN_SKIP=true` is required — because this repo also contains the Next.js CRM app below, Netlify's build system auto-detects `next` in `package.json` and tries to build the CRM instead of serving `public/` as static files unless explicitly told not to.
+
+---
+
+## Internal CRM (`app/`, `prisma/`)
+
+A separate, unfinished Next.js + Prisma tool for customer/job/invoice management — unrelated to the marketing site above. See inline code comments for what exists. Key facts:
+
+- **Not deployed anywhere**, and shouldn't be until it has authentication — `/api/customers` and `/api/jobs` currently have none, and would expose real customer data to the internet unauthenticated the moment it's put online with real records in it.
+- The local dev database (`prisma/prisma/data.db`) is gitignored — it was accidentally committed once before being caught; don't remove it from `.gitignore`.
+- If you want to actually deploy this in the future: add auth to the API routes first, then deploy it as **its own site** (its own Netlify/Vercel/Railway project, not bolted onto the marketing site's deploy) so the two never collide again the way they did before.
+
+### Local development
+```bash
 npm install
-
-# Set up database
 npx prisma db push
-
-# Start development server
-npm run dev
+npm run dev   # http://localhost:3000
 ```
 
-Visit http://localhost:3000
+### Database models
+`Customer`, `Job`, `Invoice`, `Schedule`, `TeamMember`, `Photo`, `Expense`. Job status flow: `QUOTE` → `QUOTED` → `ACCEPTED` → `IN_PROGRESS` → `COMPLETED` → `INVOICED` → `PAID`.
 
-### Environment Configuration
+### API routes
+- `GET/POST /api/customers`, `GET/PATCH/DELETE /api/customers/[id]`
+- `GET/POST /api/jobs`, `GET/PATCH/DELETE /api/jobs/[id]`
 
-Create/edit `.env.local`:
-
-```env
-DATABASE_URL="file:./data.db"
-BUSINESS_NAME="Shoreline Pro Services LLC"
-BUSINESS_PHONE=""
-BUSINESS_EMAIL=""
-INVOICE_TAX_RATE="0.1"
-API_URL="http://localhost:3000"
-```
-
-## Database Schema
-
-### Core Models
-
-- **Customer** - Client information and contact details
-- **Job** - Painting projects with status tracking
-- **Invoice** - Billing and payment records
-- **Schedule** - Job date/time assignments
-- **TeamMember** - Crew information
-- **Photo** - Before/after project photos
-- **Expense** - Cost tracking
-
-### Job Status Flow
-
-`QUOTE` → `QUOTED` → `ACCEPTED` → `IN_PROGRESS` → `COMPLETED` → `INVOICED` → `PAID`
-
-## API Endpoints
-
-### Customers
-- `GET /api/customers` - List all customers
-- `POST /api/customers` - Create new customer
-- `GET /api/customers/[id]` - Get customer details
-- `PATCH /api/customers/[id]` - Update customer
-- `DELETE /api/customers/[id]` - Delete customer
-
-### Jobs
-- `GET /api/jobs` - List jobs (filterable by status, customer)
-- `POST /api/jobs` - Create new job
-- `GET /api/jobs/[id]` - Get job details
-- `PATCH /api/jobs/[id]` - Update job
-- `DELETE /api/jobs/[id]` - Delete job
-
-### Invoices
-- `GET /api/invoices` - List invoices
-- `POST /api/invoices` - Create invoice
-- `PATCH /api/invoices/[id]` - Update invoice status/payment
-
-### Schedules
-- `GET /api/schedules` - List schedules (filterable by date)
-- `POST /api/schedules` - Create schedule entry
-- `PATCH /api/schedules/[id]` - Update schedule
-
-## Development
-
-### Creating Database Migrations
-
-After updating `prisma/schema.prisma`:
-
-```bash
-npx prisma migrate dev --name add_description
-```
-
-### Generating Types
-
-Prisma automatically generates types. Rebuild with:
-
-```bash
-npx prisma generate
-```
-
-### Using Prisma Studio
-
-```bash
-npx prisma studio
-```
-
-## Project Structure
-
-```
-shorelinepro/
-├── app/
-│   ├── api/              # API routes
-│   ├── dashboard/        # Main dashboard
-│   ├── customers/        # Customer management UI
-│   ├── jobs/             # Job management UI
-│   ├── invoices/         # Invoice management UI
-│   ├── schedule/         # Scheduling UI
-│   └── layout.tsx        # Root layout
-├── components/           # Reusable React components
-├── lib/
-│   ├── prisma.ts         # Prisma client
-│   └── utils.ts          # Helper functions
-├── prisma/
-│   ├── schema.prisma     # Database schema
-│   └── migrations/       # Schema migrations
-├── public/               # Static assets
-├── .env.local            # Environment variables
-└── package.json          # Dependencies
-```
-
-## Deployment
-
-### Railway
-
-```bash
-# Install Railway CLI
-npm install -g @railway/cli
-
-# Login and link project
-railway login
-railway link
-
-# Deploy
-railway up
-```
-
-### Vercel
-
-```bash
-# Push to GitHub, connect repo to Vercel
-# Auto-deploys on git push
-```
-
-### Self-Hosted
-
-```bash
-npm run build
-npm start
-```
-
-## Default Settings
-
-- **City:** Vancouver
-- **State:** WA
-- **Tax Rate:** 10%
-- **Default Invoice Start Number:** 1001
-
-## Notes
-
-- All customer addresses default to Clark County, Washington
-- Phone numbers are unique per customer
-- Job statuses follow a specific workflow
-- Photos are stored with stage tags (before/during/after)
-- Expenses can be categorized for reporting
-
-## Support
-
-For issues or features, check the `.github/copilot-instructions.md` file for development guidelines.
+---
 
 ## License
 
-Commercial software for Shoreline Pro Services LLC use.
+Commercial — Shoreline Pro Services LLC internal use.
