@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Shoreline Pro Services</title>
+    <meta name="description" content="Real completed projects from Shoreline Pro Services: log cabin exterior staining, fence and deck staining, and interior repaints in Vancouver, WA and Clark County.">
+    <link rel="canonical" href="https://shorelineproservices.com/portfolio.html">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta property="og:title" content="Portfolio - Shoreline Pro Services">
+    <meta property="og:description" content="Real completed painting and staining projects in Vancouver, WA and Clark County.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shorelineproservices.com/portfolio.html">
+    <meta property="og:image" content="https://shorelineproservices.com/photos/portfolio/cabin-hero.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --navy: #1F2D50;
+            --amber: #B8863B;
+            --amber-light: #D9A94A;
+            --cream: #F5F1E8;
+            --text: #333;
+            --light: #f9f7f3;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--cream);
+            padding-bottom: 64px;
+        }
+
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+        /* Site nav */
+        .site-nav { background: var(--cream); border-bottom: 1px solid rgba(31,45,80,0.1); }
+        .site-nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px 0; }
+        .site-nav-logo { display: flex; align-items: center; line-height: 0; }
+        .site-nav-logo img { height: 32px; width: auto; }
+        .site-nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; font-weight: 600; }
+        .site-nav-links a { color: var(--navy); text-decoration: none; }
+        .site-nav-links a:hover { color: var(--amber); }
+        .site-nav-call { background: var(--navy); color: #fff !important; padding: 8px 16px; border-radius: 4px; }
+        .site-nav-call:hover { background: #16213D; color: #fff !important; }
+        @media (max-width: 640px) { .site-nav-links a:not(.site-nav-call) { display: none; } }
+
+        /* Ribbon */
+        .ribbon { background: var(--navy); color: #fff; padding: 12px 0; font-size: 13px; text-align: center; }
+        .ribbon .wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; }
+        .ribbon strong { color: var(--amber-light); font-weight: 600; }
+
+        /* Page hero */
+        .page-hero { padding: 56px 0 40px; text-align: center; }
+        .page-hero .eyebrow {
+            font-size: 13px; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--amber); font-weight: 600; margin-bottom: 10px;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif; font-size: 42px; color: var(--navy);
+            margin-bottom: 14px; text-wrap: balance;
+        }
+        .page-hero p { font-size: 17px; color: #666; max-width: 620px; margin: 0 auto; }
+
+        /* Category sections */
+        .category { padding: 20px 0 48px; }
+        .category-head { margin-bottom: 24px; }
+        .category-head h2 {
+            font-family: 'Playfair Display', serif; font-size: 28px; color: var(--navy);
+            margin-bottom: 6px;
+        }
+        .category-head p { color: #666; font-size: 15px; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .gallery-item { background: var(--light); border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        .gallery-item img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .gallery-item-text { padding: 16px 18px; }
+        .gallery-item-text p { color: #666; font-size: 14px; }
+
+        .cta-strip {
+            background: var(--navy); padding: 48px 0; text-align: center; margin-top: 20px;
+        }
+        .cta-strip h2 {
+            font-family: 'Playfair Display', serif; font-size: 28px; color: #fff; margin-bottom: 10px;
+        }
+        .cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 24px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+            border-radius: 4px; font-weight: 600; font-size: 16px; text-decoration: none;
+        }
+        .btn-primary { background: var(--amber-light); color: var(--navy); }
+        .btn-primary:hover { background: var(--amber); }
+
+        footer { background: var(--navy); color: rgba(255,255,255,0.75); padding: 32px 0; text-align: center; font-size: 13px; border-top: 1px solid rgba(255,255,255,0.1); }
+        footer strong { color: #fff; }
+        footer a { color: var(--amber-light); text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+
+        .mobile-call-bar {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+            background: var(--amber); color: var(--navy); align-items: center; justify-content: center;
+            gap: 8px; padding: 14px 0; padding-bottom: calc(14px + env(safe-area-inset-bottom));
+            font-weight: 700; font-size: 16px; text-decoration: none; box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+        }
+        .mobile-call-bar svg { width: 20px; height: 20px; }
+
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 32px; }
+            .mobile-call-bar { display: flex; }
+            .ribbon .wrap { flex-direction: column; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="tel:+13603382000" class="mobile-call-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+        Call Now — (360) 338-2000
+    </a>
+
+    <nav class="site-nav">
+        <div class="wrap site-nav-inner">
+            <a href="/" class="site-nav-logo"><img src="/logo.svg" alt="Shoreline Pro Services" width="160" height="36"></a>
+            <div class="site-nav-links">
+                <a href="/portfolio.html">Portfolio</a>
+                <a href="/#estimate">Get a Free Estimate</a>
+                <a class="site-nav-call" href="tel:+13603382000">(360) 338-2000</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ribbon">
+        <div class="wrap">
+            <span><strong>Licensed</strong> WA #SHORES751PG</span>
+            <span><strong>Bonded &amp; Insured</strong></span>
+            <span>Serving <strong>Vancouver, WA &amp; Clark County</strong></span>
+        </div>
+    </div>
+
+    <main>
+        <header class="page-hero">
+            <div class="wrap">
+                <div class="eyebrow">Recent Work</div>
+                <h1>A closer look at the work</h1>
+                <p>Real jobsites, real finishes — exterior staining, fence &amp; deck work, and interior repaints from recent projects around Vancouver and Clark County.</p>
+            </div>
+        </header>
+
+        <section class="category">
+            <div class="wrap">
+                <div class="category-head">
+                    <h2>Log Cabin Exterior</h2>
+                    <p>Full exterior stain refresh — warm wood-tone finish that protects the log siding while keeping the natural grain visible.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/cabin-hero.jpg" alt="Log cabin exterior corner after staining" width="700" height="525" loading="lazy">
+                        <div class="gallery-item-text"><p>Full exterior corner, finished stain</p></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/cabin-exterior-wide.jpg" alt="Log cabin garage and siding after staining" width="525" height="700" loading="lazy">
+                        <div class="gallery-item-text"><p>Garage &amp; siding detail</p></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/cabin-porch-1.jpg" alt="Log cabin front porch after staining" width="700" height="525" loading="lazy">
+                        <div class="gallery-item-text"><p>Front porch &amp; entry</p></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/cabin-porch-2.jpg" alt="Log cabin wraparound porch after staining" width="700" height="525" loading="lazy">
+                        <div class="gallery-item-text"><p>Wraparound porch</p></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/cabin-porch-3.jpg" alt="Log cabin covered deck after staining" width="700" height="525" loading="lazy">
+                        <div class="gallery-item-text"><p>Covered deck</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category">
+            <div class="wrap">
+                <div class="category-head">
+                    <h2>Deck &amp; Fence Staining</h2>
+                    <p>Protective stain and careful prep that keeps outdoor wood looking rich and holds up to PNW weather.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/fence-line.jpg" alt="Backyard fence line after staining" width="700" height="525" loading="lazy">
+                        <div class="gallery-item-text"><p>Backyard fence line</p></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/fence-garage.jpg" alt="Fence and garage exterior after staining" width="700" height="525" loading="lazy">
+                        <div class="gallery-item-text"><p>Fence &amp; garage exterior</p></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/fence-corner.jpg" alt="Fence corner and house siding after staining" width="700" height="525" loading="lazy">
+                        <div class="gallery-item-text"><p>Fence corner detail</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category">
+            <div class="wrap">
+                <div class="category-head">
+                    <h2>Interior Refresh</h2>
+                    <p>Clean, detail-focused interior work — accent walls and full-room repaints that brighten a home.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/interior-kitchen-accent.jpg" alt="Kitchen with navy accent wall repaint" width="700" height="398" loading="lazy">
+                        <div class="gallery-item-text"><p>Kitchen accent wall</p></div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/photos/portfolio/interior-bedroom-accent.jpg" alt="Bedroom with navy accent wall repaint" width="700" height="515" loading="lazy">
+                        <div class="gallery-item-text"><p>Bedroom accent wall</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="cta-strip">
+        <div class="wrap">
+            <h2>Ready to see this on your place?</h2>
+            <p>Free, no-obligation estimates — call or send a few photos of your project.</p>
+            <a class="btn btn-primary" href="/#estimate">Get a Free Estimate</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrap">
+            <div><strong>Shoreline Pro Services LLC</strong> · WA License SHORES751PG</div>
+            <div><a href="tel:+13603382000">(360) 338-2000</a> · Vancouver, WA · Clark County</div>
+            <div style="margin-top: 8px;"><a href="/privacy-policy.html">Privacy Policy</a></div>
+        </div>
+    </footer>
+</body>
+</html>

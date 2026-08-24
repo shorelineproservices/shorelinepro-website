@@ -73,6 +73,66 @@
             padding: 0 20px;
         }
 
+        /* Site nav */
+        .site-nav {
+            background: var(--cream);
+            border-bottom: 1px solid rgba(31,45,80,0.1);
+        }
+
+        .site-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 14px 0;
+        }
+
+        .site-nav-logo {
+            display: flex;
+            align-items: center;
+            line-height: 0;
+        }
+
+        .site-nav-logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        .site-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .site-nav-links a {
+            color: var(--navy);
+            text-decoration: none;
+        }
+
+        .site-nav-links a:hover {
+            color: var(--amber);
+        }
+
+        .site-nav-call {
+            background: var(--navy);
+            color: #fff !important;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .site-nav-call:hover {
+            background: #16213D;
+            color: #fff !important;
+        }
+
+        @media (max-width: 640px) {
+            .site-nav-links a:not(.site-nav-call) {
+                display: none;
+            }
+        }
+
         /* Ribbon */
         .ribbon {
             background: var(--navy);
@@ -512,6 +572,17 @@
             box-shadow: 0 0 0 3px rgba(184,134,59,0.1);
         }
 
+        .field input[type="file"] {
+            padding: 8px;
+            font-size: 13px;
+        }
+
+        .field-hint {
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.7);
+            margin-top: 6px;
+        }
+
         /* Footer */
         footer {
             background: var(--navy);
@@ -612,6 +683,17 @@
         </svg>
         Call Now — (360) 338-2000
     </a>
+    <!-- Site nav -->
+    <nav class="site-nav">
+        <div class="wrap site-nav-inner">
+            <a href="/" class="site-nav-logo"><img src="/logo.svg" alt="Shoreline Pro Services" width="160" height="36"></a>
+            <div class="site-nav-links">
+                <a href="/portfolio.html">Portfolio</a>
+                <a href="/#estimate">Get a Free Estimate</a>
+                <a class="site-nav-call" href="tel:+13603382000">(360) 338-2000</a>
+            </div>
+        </div>
+    </nav>
     <!-- Ribbon -->
     <div class="ribbon">
         <div class="wrap">
@@ -806,8 +888,9 @@
                 <div class="offer-form">
                     <h3>Request your estimate</h3>
                     <p class="form-sub">Or just call — <a href="tel:+13603382000">(360) 338-2000</a></p>
-                    <form action="https://formspree.io/f/xoeakala" method="POST">
-                        <input type="hidden" name="_next" value="/thank-you.html">
+                    <form name="estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/thank-you.html">
+                        <input type="hidden" name="form-name" value="estimate">
+                        <p style="display: none;"><label>Leave this field blank: <input name="bot-field"></label></p>
                         <div class="field">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -830,7 +913,11 @@
                             <label for="message">A few details (optional)</label>
                             <textarea id="message" name="message" rows="3"></textarea>
                         </div>
-                        <input type="text" name="_gotcha" style="display: none;">
+                        <div class="field">
+                            <label for="photos">Photos or videos of your project (optional)</label>
+                            <input type="file" id="photos" name="photos" accept="image/*,video/*" multiple>
+                            <p class="field-hint">A few photos help us quote faster. Large videos may take a moment to upload.</p>
+                        </div>
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Request My Free Estimate</button>
                     </form>
                 </div>
