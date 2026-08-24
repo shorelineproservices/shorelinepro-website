@@ -42,7 +42,8 @@
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
     <style>
         * {
             margin: 0;
@@ -53,6 +54,7 @@
         :root {
             --navy: #1F2D50;
             --amber: #B8863B;
+            --amber-light: #D9A94A;
             --cream: #F5F1E8;
             --text: #333;
             --light: #f9f7f3;
@@ -94,7 +96,7 @@
 
         .ribbon strong {
             font-weight: 600;
-            color: var(--amber);
+            color: var(--amber-light);
         }
 
         /* Hero */
@@ -177,12 +179,12 @@
         }
 
         .btn-primary {
-            background: var(--amber);
+            background: var(--amber-light);
             color: var(--navy);
         }
 
         .btn-primary:hover {
-            background: #d4a856;
+            background: var(--amber);
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(184,134,59,0.3);
         }
@@ -250,7 +252,7 @@
             color: var(--amber);
         }
 
-        .pillar h3 {
+        .pillar h2 {
             font-family: 'Playfair Display', serif;
             font-size: 22px;
             margin-bottom: 12px;
@@ -389,7 +391,7 @@
 
         .testimonial-attribution {
             font-size: 14px;
-            color: #999;
+            color: #666;
             font-weight: 600;
         }
 
@@ -642,6 +644,8 @@
         </div>
     </header>
 
+    <main>
+
     <!-- Brushstroke Divider -->
     <svg class="brushstroke" viewBox="0 0 1080 26" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M0,14 C120,4 220,22 340,12 C460,2 560,20 680,10 C800,1 900,19 1080,8 L1080,26 L0,26 Z" fill="#C08A2E" opacity="0.9"></path>
@@ -656,7 +660,7 @@
                     <path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"></path>
                     <path d="m9 12 2 2 4-4"></path>
                 </svg>
-                <h3>Licensed &amp; Insured</h3>
+                <h2>Licensed &amp; Insured</h2>
                 <p>WA contractor license SHORES751PG. Fully bonded and insured on every job.</p>
             </div>
 
@@ -665,7 +669,7 @@
                     <circle cx="12" cy="12" r="9"></circle>
                     <path d="M12 7v5l3 3"></path>
                 </svg>
-                <h3>Premium Coatings</h3>
+                <h2>Premium Coatings</h2>
                 <p>Sherwin-Williams Emerald Urethane Trim Enamel on trim and doors, Duration on walls and ceilings.</p>
             </div>
 
@@ -674,7 +678,7 @@
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                 </svg>
-                <h3>Local &amp; Responsive</h3>
+                <h2>Local &amp; Responsive</h2>
                 <p>Based in Vancouver, WA. We answer, we show up, we quote fast.</p>
             </div>
         </div>
@@ -707,21 +711,21 @@
 
             <div class="gallery-grid" style="margin-top: 10px;">
                 <div class="gallery-item">
-                    <img src="/photos/log-cabin.jpg" alt="Log cabin exterior restoration" width="1000" height="750" loading="lazy">
+                    <img src="/photos/log-cabin.jpg" alt="Log cabin exterior restoration" width="700" height="525" loading="lazy">
                     <div class="gallery-item-text">
                         <h3>Log cabin exterior</h3>
                         <p>Warm wood-tone finish that enhances natural grain while protecting the home from the elements.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/photos/deck-stain.jpg" alt="Deck and fence staining project" width="1000" height="750" loading="lazy">
+                    <img src="/photos/deck-stain.jpg" alt="Deck and fence staining project" width="700" height="525" loading="lazy">
                     <div class="gallery-item-text">
                         <h3>Deck &amp; fence staining</h3>
                         <p>Protective stain and prep that keeps outdoor features looking rich and durable.</p>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/photos/interior-refresh.jpg" alt="Interior painting project" width="1000" height="568" loading="lazy">
+                    <img src="/photos/interior-refresh.jpg" alt="Interior painting project" width="700" height="398" loading="lazy">
                     <div class="gallery-item-text">
                         <h3>Interior refresh</h3>
                         <p>Clean, detail-focused interior work that brightens the home and improves resale value.</p>
@@ -833,6 +837,8 @@
             </div>
         </div>
     </section>
+
+    </main>
 
     <!-- Footer -->
     <footer>
