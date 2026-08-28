@@ -67,6 +67,21 @@
         }
         .step-body h2 { font-family: 'Playfair Display', serif; font-size: 21px; color: var(--navy); margin-bottom: 8px; }
         .step-body p { font-size: 15px; color: #555; }
+        .step-photo { margin-top: 14px; border-radius: 4px; overflow: hidden; max-width: 420px; }
+        .step-photo img { width: 100%; display: block; }
+        .step-photo-caption { font-size: 13px; color: #888; padding: 8px 2px 0; }
+
+        /* Materials section */
+        .materials-section { padding: 8px 0 56px; background: var(--cream-panel, #ECE4CF); }
+        .materials-section .category-head { text-align: center; max-width: 700px; margin: 0 auto 32px; padding-top: 48px; }
+        .materials-section .category-head h2 { font-family: 'Playfair Display', serif; font-size: 30px; color: var(--navy); margin-bottom: 10px; }
+        .materials-section .category-head p { color: #666; font-size: 15px; }
+        .materials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .material-card { background: var(--light); border-radius: 6px; padding: 22px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .material-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--navy); margin-bottom: 4px; }
+        .material-card .use { font-size: 13px; color: var(--amber-deep); font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 10px; }
+        .material-card p { font-size: 14px; color: #555; margin-bottom: 6px; }
+        .material-card .spec { font-size: 13px; color: #888; }
 
         .cta-strip { background: var(--navy); padding: 48px 0; text-align: center; margin-top: 20px; }
         .cta-strip h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: #fff; margin-bottom: 10px; }
@@ -164,22 +179,77 @@
                         <div class="step-num">4</div>
                         <div class="step-body">
                             <h2>Prep</h2>
-                            <p>Pressure washing, scraping, sanding, caulking, and masking — the unglamorous work that determines how long the finish actually lasts.</p>
+                            <p>Pressure washing, scraping, sanding, caulking, rotted wood replacement, priming bare or worn areas, and masking — the unglamorous work that determines how long the finish actually lasts.</p>
+                            <div class="step-photo">
+                                <img src="/photos/process/prep-masking.jpg" alt="Window masking and surface prep before exterior painting in Vancouver WA" width="700" height="525" loading="lazy">
+                                <div class="step-photo-caption">Window masking and surface prep before spraying</div>
+                            </div>
                         </div>
                     </div>
                     <div class="process-step">
                         <div class="step-num">5</div>
                         <div class="step-body">
                             <h2>Paint or Stain</h2>
-                            <p>Premium Sherwin-Williams products applied correctly, with daily site cleanup — no mess left sitting overnight.</p>
+                            <p>Premium Sherwin-Williams products applied by spray and back-roll for full, even coverage, with multiple coats where the spec calls for it, and daily site cleanup — no mess left sitting overnight.</p>
+                            <div class="step-photo">
+                                <img src="/photos/process/paint-application.jpg" alt="Exterior paint application in progress, spray and back-roll technique, Clark County WA" width="700" height="525" loading="lazy">
+                                <div class="step-photo-caption">Application in progress</div>
+                            </div>
                         </div>
                     </div>
                     <div class="process-step">
                         <div class="step-num">6</div>
                         <div class="step-body">
                             <h2>Final Walkthrough</h2>
-                            <p>We walk the finished job with you before calling it done, and handle any touch-ups on the spot.</p>
+                            <p>We walk the finished job with you before calling it done, and handle any touch-ups on the spot. We hold every job to the Painting Contractors Association (PCA) standard for a properly painted surface: uniform in color, texture, hiding, and sheen, with no drips, holidays, or overspray visible without magnification from 39 inches under normal lighting.</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="materials-section">
+            <div class="wrap">
+                <div class="category-head">
+                    <h2>Materials We Use</h2>
+                    <p>Product selected for what the surface actually needs — not a single house-brand product used everywhere. Specs below are from Sherwin-Williams' published product data sheets.</p>
+                </div>
+                <div class="materials-grid">
+                    <div class="material-card">
+                        <h3>Duration Exterior Acrylic</h3>
+                        <div class="use">Premium siding &amp; trim repaints</div>
+                        <p>Thick-mil, high-build acrylic coating built for maximum exterior durability.</p>
+                        <p class="spec">Coverage: 250&ndash;300 sq ft/gal · Recoat: 4 hrs (45&deg;F+), 24&ndash;48 hrs (35&ndash;45&deg;F)</p>
+                    </div>
+                    <div class="material-card">
+                        <h3>SuperPaint Exterior</h3>
+                        <div class="use">General exterior repaints</div>
+                        <p>Self-priming vinyl acrylic with strong hide and adhesion for everyday exterior work.</p>
+                        <p class="spec">Coverage: 350&ndash;400 sq ft/gal · Touch dry: 1 hr · Recoat: 4 hrs (77&deg;F/50% RH)</p>
+                    </div>
+                    <div class="material-card">
+                        <h3>Latitude Exterior Acrylic</h3>
+                        <div class="use">Cool &amp; shoulder-season painting</div>
+                        <p>ClimateFlex technology applies down to 35&deg;F where standard exterior latex quits around 50&deg;F &mdash; keeps PNW project timelines moving through fall and early spring.</p>
+                        <p class="spec">Application range: 35&ndash;120&deg;F · Rain-ready in as little as 30 min at 35&deg;F</p>
+                    </div>
+                    <div class="material-card">
+                        <h3>Emerald Urethane Trim Enamel</h3>
+                        <div class="use">Trim, doors &amp; cabinets</div>
+                        <p>Waterbased urethane-modified alkyd &mdash; the look, flow, and durability of an oil enamel without the oil-based cleanup or yellowing.</p>
+                        <p class="spec">Coverage: 350&ndash;400 sq ft/gal · Recoat: 4 hrs · Full cure: 7&ndash;30 days</p>
+                    </div>
+                    <div class="material-card">
+                        <h3>WoodScapes Stain</h3>
+                        <div class="use">Log homes, cedar siding &amp; shakes</div>
+                        <p>Film-forming, self-priming, mildew-resistant pigmented stain for siding, shakes, fascia, soffits, trim, fences, and log-home walls.</p>
+                        <p class="spec">Coverage: 200&ndash;400 sq ft/gal (varies with wood porosity) · Recoat: 24 hrs</p>
+                    </div>
+                    <div class="material-card">
+                        <h3>SuperDeck Stain</h3>
+                        <div class="use">Decks &amp; fences</div>
+                        <p>Solid, semi-solid, and semi-transparent formulations applied by sprayer, roller, or brush, always with the grain.</p>
+                        <p class="spec">Coverage: 200&ndash;400 sq ft/gal · Dry: 4+ hrs between coats</p>
                     </div>
                 </div>
             </div>
