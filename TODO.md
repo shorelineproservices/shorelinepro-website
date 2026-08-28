@@ -6,7 +6,7 @@ Working toward: a complete, self-sufficient (zero paid services) marketing site 
 
 - [x] **Portfolio page SEO pass** — enriched alt text + captions with location/service keywords across all 5 sections, added ImageGallery JSON-LD structured data, verified rendering.
 - [x] **Reviewed newest photo batch** (IMG_3996, IMG_4003) — both mid-progress (ladders/tarps/tape), skipped per quality bar.
-- [ ] **OG/thumbnail image with logo** — current `og:image` points to a raw jobsite photo. Build a proper 1200x630 social-share image that includes the logo, use across all pages' `og:image` meta tags.
+- [x] **OG/thumbnail image with logo** — built `og-image.jpg` (1200x630, navy background, full logo lockup) and wired into `og:image` on all 6 main pages. Also fixed a stray artifact line baked into the top edge of the original logo file that had been carried into every derived asset (favicon, nav, brandmark) — reprocessed from source with the fix.
 - [x] **Services page** (`services.html`) — 9 service cards: exterior/interior repaints, pressure washing, log home restoration, siding repair, deck & fence staining, cabinet refinishing, new construction, commercial. Includes OfferCatalog structured data.
 - [x] **Process page** (`process.html`) — 6-step process (call → estimate → schedule → prep → paint/stain → walkthrough). Still needs: real photos per step + SW product specs (see below).
 - [x] **About Us page** (`about.html`) — scaffold with real facts (license, location, bonded/insured), clearly marked placeholder note for full content later.
