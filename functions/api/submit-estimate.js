@@ -7,8 +7,11 @@
 // Required Pages secret: RESEND_API_KEY (wrangler pages secret put)
 // Optional Pages variables: FROM_EMAIL, TO_EMAIL (sensible defaults below)
 
-const MAX_ATTACHMENT_BYTES = 8 * 1024 * 1024; // per-file cap so a big video doesn't blow the email size limit
-const MAX_TOTAL_ATTACHMENT_BYTES = 30 * 1024 * 1024; // Resend's practical email size ceiling
+// Resend caps a full email (including attachments) at 40MB *after* base64
+// encoding, which inflates raw bytes by ~33%. Capping raw total well under
+// 40MB/1.33 to leave room for JSON/header overhead on top of that.
+const MAX_ATTACHMENT_BYTES = 6 * 1024 * 1024; // per-file cap
+const MAX_TOTAL_ATTACHMENT_BYTES = 22 * 1024 * 1024; // raw bytes, pre-base64
 
 function escapeHtml(str) {
   return String(str)
