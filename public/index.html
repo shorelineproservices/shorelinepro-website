@@ -917,8 +917,7 @@
                 <div class="offer-form">
                     <h3>Request your estimate</h3>
                     <p class="form-sub">Or just call — <a href="tel:+13603382000">(360) 338-2000</a></p>
-                    <form name="estimate" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/thank-you.html">
-                        <input type="hidden" name="form-name" value="estimate">
+                    <form name="estimate" method="POST" enctype="multipart/form-data" action="/api/submit-estimate">
                         <p style="display: none;"><label>Leave this field blank: <input name="bot-field"></label></p>
                         <div class="field">
                             <label for="name">Name</label>
@@ -931,10 +930,15 @@
                         <div class="field">
                             <label for="service">Project type</label>
                             <select id="service" name="service">
-                                <option>Exterior painting</option>
-                                <option>Interior painting</option>
-                                <option>Cabinet refinishing</option>
+                                <option>Exterior repaint</option>
+                                <option>Interior repaint</option>
+                                <option>Pressure washing</option>
+                                <option>Log home restoration</option>
+                                <option>Siding repair</option>
                                 <option>Deck / fence staining</option>
+                                <option>Cabinet refinishing</option>
+                                <option>New construction</option>
+                                <option>Commercial painting</option>
                                 <option>Not sure yet</option>
                             </select>
                         </div>
