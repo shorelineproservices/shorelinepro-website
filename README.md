@@ -7,7 +7,7 @@ This repository contains **two independent, unrelated projects**. Mixing them up
 | Where | `public/` | `app/`, `prisma/`, `lib/`, `components/` |
 | Status | **Live** at [shorelineproservices.com](https://shorelineproservices.com) | Not deployed, in-progress |
 | Stack | Plain static HTML/CSS/JS, no build step | Next.js + Prisma/SQLite |
-| Hosted on | Netlify (`shorelinepro-website` site) | Nowhere — do not deploy without adding auth first |
+| Hosted on | Cloudflare Pages (`shorelinepro-website` project) | Nowhere — do not deploy without adding auth first |
 
 ---
 
@@ -17,11 +17,11 @@ The actual customer-facing site. No framework, no build step — just static fil
 
 **Live sites:**
 - Main site: https://shorelineproservices.com
-- Dedicated PPC landing page: https://shorelinepro-landing.netlify.app (separate repo: [`shoreline-landing-pages`](https://github.com/shorelineproservices/shoreline-landing-pages))
+- Dedicated PPC landing page: https://get-estimate.shorelineproservices.com (separate repo: [`shoreline-landing-pages`](https://github.com/shorelineproservices/shoreline-landing-pages))
 
-**Pages:** `index.html` (home), `portfolio.html`, `thank-you.html` (form success), `privacy-policy.html`, `404.html`.
+**Pages:** `index.html` (home), `services.html`, `portfolio.html`, `process.html`, `about.html`, `mission.html`, `thank-you.html` (form success), `privacy-policy.html`, `404.html`.
 
-**Form backend:** Netlify Forms (not Formspree — migrated away since Formspree gates file attachments behind a paid plan). Submissions include optional photo/video uploads, go through a honeypot spam field, and email-notify `shorelineproservices@gmail.com` via a Netlify outgoing webhook. Redirects to `/thank-you.html` on success.
+**Form backend:** Netlify Forms — a holdover from when the site was hosted on Netlify. This still works fine standalone (Netlify Forms doesn't require the site to be hosted there, just a hidden `data-netlify` form tag and a POST to a Netlify endpoint), but if it ever becomes a problem, it's the one piece of the site still coupled to Netlify. Submissions include optional photo/video uploads, go through a honeypot spam field, and email-notify `shorelineproservices@gmail.com`. Redirects to `/thank-you.html` on success.
 
 **To update the live site:**
 ```bash
@@ -29,16 +29,17 @@ The actual customer-facing site. No framework, no build step — just static fil
 # 2. Commit and push (source of truth / history)
 git add public/ && git commit -m "..." && git push
 
-# 3. Actually deploy (pushing to GitHub does NOT auto-deploy —
-#    there's no CI/CD wired up; see note below)
-netlify deploy --prod --dir=public
+# 3. Deploy — auto or manual depending on setup (see below)
+npx wrangler pages deploy public --project-name=shorelinepro-website --branch=main
 ```
 
-**No CI/CD yet.** A `git push` alone does not update the live site — someone has to run `netlify deploy --prod --dir=public` afterward. Setting up GitHub Actions auto-deploy is possible (a Netlify Personal Access Token as a repo secret) but hasn't been done.
+**Hosting: Cloudflare Pages** (migrated from Netlify 2026-08-29 — Netlify's Aug 19 2026 policy change added a forced "Powered by Netlify" badge on free-tier sites and a credit-metered production-deploy cap that blocked deploys mid-project). Deployed via `wrangler pages deploy`. If Git-connected continuous deployment was set up (Workers & Pages → project → Settings → Build & deployments → Connect to Git), a plain `git push` auto-deploys; otherwise the `wrangler pages deploy` command above needs to be run manually after each push — check the project's dashboard to see which is active.
 
-**DNS / domain:** `shorelineproservices.com` is on Cloudflare DNS (not Cloudflare-proxied — DNS-only, so Netlify's Let's Encrypt cert can be issued directly). Root record is a CNAME to `shorelinepro-website.netlify.app`.
+**DNS / domain:** `shorelineproservices.com` is on Cloudflare DNS, **proxied** (orange cloud) — Cloudflare issues and serves the cert directly since Pages is a native Cloudflare product (no DNS-only workaround needed, unlike the old Netlify setup). Root record is a CNAME to `shorelinepro-website.pages.dev`.
 
-**`netlify.toml` note:** `NETLIFY_NEXT_PLUGIN_SKIP=true` is required — because this repo also contains the Next.js CRM app below, Netlify's build system auto-detects `next` in `package.json` and tries to build the CRM instead of serving `public/` as static files unless explicitly told not to.
+**Old Netlify sites:** left dormant (not deleted) as a fallback — `shorelinepro-website` and `shorelinepro-landing` Netlify projects still exist but are no longer the DNS target.
+
+**`netlify.toml` note (legacy):** Still present but no longer used for deploys. Historically needed `NETLIFY_NEXT_PLUGIN_SKIP=true` because Netlify's build system auto-detected `next` in `package.json` (from the CRM app below) and tried to build that instead of serving `public/`. Cloudflare Pages doesn't have this problem — `wrangler pages deploy public` only ever touches the `public/` directory.
 
 ---
 
