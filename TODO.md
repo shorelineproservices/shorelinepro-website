@@ -33,6 +33,19 @@ Working toward: a complete, self-sufficient (zero paid services) marketing site 
 - [ ] **Minor: Cloudflare Pages forces `.html` → clean-URL redirects** (`/services.html` → `/services`, 308 permanent) — Pages projects don't support the `[assets] html_handling` override that would disable this (confirmed by testing — Pages rejects that wrangler.toml block outright, it's Workers-only). Functionally harmless (links still resolve, 308s pass full SEO ranking signal), but canonical URLs / sitemap.xml / JSON-LD still declare the `.html` paths, which is a minor mismatch against what's actually served. Low-priority polish: align canonical tags to the clean URLs Cloudflare actually serves.
 - [ ] **Old Netlify projects left dormant, not deleted** — `shorelinepro-website` and `shorelinepro-landing` Netlify sites still exist as a fallback but are no longer the DNS target. Fine to leave indefinitely; delete later if Tristen wants to fully close the Netlify account.
 
+## Next phase — planned big moves, roughly in priority order
+
+1. **Finish the estimate form fix** (in progress above) — nothing else matters if leads aren't being captured.
+2. **Google Business Profile** — never found an existing listing when checked earlier this session. This is likely the single highest-leverage missing piece for local lead gen (map-pack visibility, "near me" searches, review aggregation) — bigger impact than most remaining website polish. Needs to be tracked down (claim existing or create new) — Tristen's Google account, can't do this one for him.
+3. **Warranty/guarantee language** — PCA research flagged this as the one real trust-signal gap. I'll draft a fill-in-the-blank template (structure + industry-typical framing) so he just has to fill in actual terms rather than starting from nothing.
+4. **CI/CD auto-deploy** — one GitHub authorization click in the Cloudflare dashboard closes this permanently; I'm currently a manual bottleneck for every deploy.
+5. **Launch the Google Ads campaign** — the Launch Kit artifact (published 2026-08-24) has the full plan ready; needs Tristen to actually create the Ads account, then I wire up real conversion tracking IDs (currently just commented-out gtag.js placeholders).
+6. **Activate Facebook auto-posting** — `shorelinepro-social` repo is built and tested, just needs Tristen's one-time Resend-style token setup (Meta developer app + Page access token, documented in that repo's README) to start actually posting.
+7. **FAQ page** — consumer-education content ("how long does exterior paint last in the PNW," "do I need a permit," "what's the difference between stain and paint for a deck") — directly matches what the PCA research showed builds credibility, and is fully completable without needing Tristen's input for most of it (general PNW painting/code knowledge already established this session).
+8. **Site analytics** — there is currently zero traffic/conversion visibility on either site. A GA4 property (or a simpler privacy-friendly option like Cloudflare Web Analytics, which is free and already native to the new hosting) would close this gap.
+9. **Real content for about.html and mission.html** — both are currently placeholder/draft, waiting on Tristen's actual bio and sign-off on the mission/vision copy.
+10. **Polish pass: image optimization + canonical URL alignment** — convert portfolio/process photos to WebP for smaller payloads as the gallery keeps growing, and align canonical tags/sitemap to match Cloudflare's clean-URL redirect behavior (both minor, bundle together when picked up).
+
 ## Done
 
 - [x] Real jobsite photos in gallery + portfolio page (log cabin, fence/deck, interior, craftsman exterior, before/after navy repaint)
