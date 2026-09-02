@@ -19,9 +19,9 @@ The actual customer-facing site. No framework, no build step — just static fil
 - Main site: https://shorelineproservices.com
 - Dedicated PPC landing page: https://get-estimate.shorelineproservices.com (separate repo: [`shoreline-landing-pages`](https://github.com/shorelineproservices/shoreline-landing-pages))
 
-**Pages:** `index.html` (home), `services.html`, `portfolio.html`, `process.html`, `about.html`, `mission.html`, `thank-you.html` (form success), `privacy-policy.html`, `404.html`.
+**Pages:** `index.html` (home), `services.html`, `portfolio.html`, `process.html`, `about.html`, `mission.html`, `faq.html`, `thank-you.html` (form success), `privacy-policy.html`, `404.html`.
 
-**Form backend:** Netlify Forms — a holdover from when the site was hosted on Netlify. This still works fine standalone (Netlify Forms doesn't require the site to be hosted there, just a hidden `data-netlify` form tag and a POST to a Netlify endpoint), but if it ever becomes a problem, it's the one piece of the site still coupled to Netlify. Submissions include optional photo/video uploads, go through a honeypot spam field, and email-notify `shorelineproservices@gmail.com`. Redirects to `/thank-you.html` on success.
+**Form backend:** a Cloudflare Pages Function (`functions/api/submit-estimate.js`), POSTed to at `/api/submit-estimate`. **Not** Netlify Forms — that was the original backend but it silently stopped working the moment the site moved off Netlify hosting (`data-netlify="true"` does nothing on any other host; every submission during that window failed with no error shown to the visitor). The Function receives the multipart form POST (name, phone, service, message, optional photo/video attachments), emails it via [Resend](https://resend.com) (free tier, no card, 3000 emails/mo) to `shorelineproservices@gmail.com`, and redirects to `/thank-you.html`. Requires a `RESEND_API_KEY` Pages secret to actually send — set it with `wrangler pages secret put RESEND_API_KEY --project-name=shorelinepro-website`. Per-file attachments are capped at 6MB and total attachments at 22MB raw (Resend's hard limit is 40MB *after* base64 encoding, which inflates size ~33%). Honeypot field (`bot-field`) silently drops bot submissions.
 
 **To update the live site:**
 ```bash
